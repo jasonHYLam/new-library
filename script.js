@@ -1,5 +1,11 @@
 // module
+const libraryModule = (() => {
 let myLibrary = [];
+
+function getMyLibrary() {
+    return myLibrary;
+    }
+})();
 
 function Book(title, author, pages, read) {
     // constructor
@@ -20,6 +26,7 @@ function addBookToLibrary(book) {
 }
 
 function displayAllBooks() {
+    console.log(myLibrary)
     myLibrary.map((book) => {
         console.log(book.info())
     })
@@ -38,3 +45,5 @@ function addBooks(...books) {
 
 addBooks(book1, book2, book3, book4);
 displayAllBooks()
+
+// display Controller 
