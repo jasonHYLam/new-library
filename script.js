@@ -9,8 +9,9 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// set functions onto prototype
 Book.prototype.info = function() {
-    return (this.title)
+    return ([this.title, this.author, this.pages, this.read]);
 
 }
 
@@ -19,3 +20,7 @@ Book.prototype.info = function() {
 function addBookToLibrary() {
 
 }
+
+const book1 = new Book('hobbit', 'jk tolkien', '420', 'no')
+// book1.info();
+console.log(book1.info());
