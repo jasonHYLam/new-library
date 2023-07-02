@@ -12,15 +12,19 @@ function Book(title, author, pages, read) {
 // set functions onto prototype
 Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
-
 }
-
 
 // controller
-function addBookToLibrary() {
-
+function addBookToLibrary(book) {
+    myLibrary.push(book);
 }
 
+function displayAllBooks() {
+    myLibrary.map((book) => {
+        console.log(book.info())
+    })
+}
 const book1 = new Book('hobbit', 'jk tolkien', '420', 'no')
-// book1.info();
-console.log(book1.info());
+const book2 = new Book('sound of waves', 'mishima i think', '420', 'no')
+const book3 = new Book('asya', 'ivan turganev', '420', 'no')
+const book4 = new Book('murder of roget ackroyd', 'agatha christie', '420', 'no')
