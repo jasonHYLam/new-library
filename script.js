@@ -25,15 +25,16 @@ function displayAllBooks() {
     })
 }
 
-const book1 = new Book('hobbit', 'jk tolkien', '420', 'no')
-const book2 = new Book('sound of waves', 'mishima i think', '420', 'no')
-const book3 = new Book('asya', 'ivan turganev', '420', 'no')
-const book4 = new Book('murder of roget ackroyd', 'agatha christie', '420', 'no')
+const book1 = new Book('hobbit', 'jk tolkien', 420, false)
+const book2 = new Book('sound of waves', 'mishima i think', 420, true)
+const book3 = new Book('asya', 'ivan turganev', 420, true)
+const book4 = new Book('murder of roget ackroyd', 'agatha christie', 420, true)
 
 function addBooks(...books) {
-    for (book of books) {
-        console.log(book.info())
+    for (let book of books) {
+        addBookToLibrary(book)
     }
 }
 
 addBooks(book1, book2, book3, book4);
+displayAllBooks()
