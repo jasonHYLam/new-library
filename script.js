@@ -19,6 +19,7 @@ function Book(title, author, pages, read) {
 // set functions onto prototype
 Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
+    // return {this.title, this.author, this.pages, this.read}
 }
 
 // controller
@@ -50,19 +51,42 @@ const libraryController = (() => {
 
 
     addBooks(book1, book2, book3, book4);
-    displayAllBooks()
+    // displayAllBooks()
 
     return {displayAllBooks, addBooks}
 })();
 
-
-
-
 // display Controller 
 const displayController = (() => {
+
+    const getCardContainer = () => {
+        return document.querySelector("#card-container");
+    }
+
+    // probably requires a form
+    // probably need to get form info
+    const createCard = () => {
+        // make card
+        const card = document.createElement('div');
+        // set class
+        // create text, using form info
+        // make remove button
+    }
+
+    const displayAllBooks = () => {
+        for (const book of libraryModule.getMyLibrary()) {
+            console.log(book)
+        }
+        console.log(cardContainer);
+        // getCardContainer().
+
+
+    }
+
     // create cards
     // delete a card
     // click add book
     // click remove book in card
 
-})
+
+})();
