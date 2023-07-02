@@ -39,18 +39,30 @@ const libraryController = (() => {
             addBookToLibrary(book)
         }
     }
+    // delete a book from array
+
+
+    // dummy books
+    const book1 = new Book('hobbit', 'jk tolkien', 420, false)
+    const book2 = new Book('sound of waves', 'mishima i think', 420, true)
+    const book3 = new Book('asya', 'ivan turganev', 420, true)
+    const book4 = new Book('murder of roget ackroyd', 'agatha christie', 420, true)
+
+
+    addBooks(book1, book2, book3, book4);
+    displayAllBooks()
+
     return {displayAllBooks, addBooks}
 })();
 
 
 
-const book1 = new Book('hobbit', 'jk tolkien', 420, false)
-const book2 = new Book('sound of waves', 'mishima i think', 420, true)
-const book3 = new Book('asya', 'ivan turganev', 420, true)
-const book4 = new Book('murder of roget ackroyd', 'agatha christie', 420, true)
-
-
-libraryController.addBooks(book1, book2, book3, book4);
-libraryController.displayAllBooks()
 
 // display Controller 
+const displayController = (() => {
+    // create cards
+    // delete a card
+    // click add book
+    // click remove book in card
+
+})
