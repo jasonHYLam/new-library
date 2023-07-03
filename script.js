@@ -127,6 +127,17 @@ const displayController = (() => {
     const showForm = () => {
             getForm().classList.remove('hidden');
     }
+
+    const submitBook = () => {
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector("#author").value;
+        const pages = document.querySelector("#pages").value;
+        const haveRead = document.querySelector("#have-read-checkbox").checked;
+
+        const newBook = new Book(title, author, pages, haveRead)
+        libraryController.addBookToLibrary(newBook)
+        // return ([title, author, pages, haveRead])
+    }
     
     const clickHandler = (() => {
 
@@ -138,7 +149,10 @@ const displayController = (() => {
         const submitFormButton = document.querySelector("#submit-add-book-button");
         submitFormButton.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(e.target)
+            submitBook();
+
+            // console.log(e.target)
+            // console.log(submitBook());
         })
         })
     })();
