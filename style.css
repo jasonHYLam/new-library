@@ -6,3 +6,7 @@ body {
     height: 30vh;
     width: auto;
 }
+
+.card {
+    background-color: pink;
+}
