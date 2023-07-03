@@ -81,6 +81,7 @@ const displayController = (() => {
         const read = document.createElement('p');
 
         const toggleRead = document.createElement('button');
+        toggleRead.classList.add("toggle-read");
         const removeCard = document.createElement('button');
         removeCard.classList.add("remove-card");
 
@@ -159,6 +160,16 @@ const displayController = (() => {
                 displayAllBooks();
             }
         });
+
+
+        getCardContainer().addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-card')) {
+                let index = Number(e.target.parentElement.dataset.index);
+                libraryController.deleteBook(index);
+                displayAllBooks();
+            }
+        });
+
         })();
 
     //initialise books display
