@@ -1,15 +1,15 @@
 // module
 const libraryModule = (() => {
     let myLibrary = [];
+    let bookCounter = 0;
 
-    function getMyLibrary() {
-        return myLibrary;
-        }
-        return {getMyLibrary}
+    function getMyLibrary() {return myLibrary};
+    function getCounter() {return bookCounter};
+    return {getMyLibrary}
 })();
 
 function Book(title, author, pages, read) {
-    // constructor
+
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -19,7 +19,6 @@ function Book(title, author, pages, read) {
 // set functions onto prototype
 Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
-    // return {this.title, this.author, this.pages, this.read}
 }
 
 // controller
@@ -28,20 +27,15 @@ const libraryController = (() => {
         libraryModule.getMyLibrary().push(book);
     }
 
-    function displayAllBooks() {
-        console.log(libraryModule.getMyLibrary())
-        libraryModule.getMyLibrary().map((book) => {
-            console.log(book.info())
-        })
-    }
-
     function addBooks(...books) {
         for (let book of books) {
             addBookToLibrary(book)
         }
     }
     // delete a book from array, using information to match; match title? or data attribute?
+    function deleteBook() {
 
+    }
 
     // dummy books
     const book1 = new Book('hobbit', 'jk tolkien', 420, false)
@@ -49,32 +43,28 @@ const libraryController = (() => {
     const book3 = new Book('asya', 'ivan turganev', 420, true)
     const book4 = new Book('murder of roget ackroyd', 'agatha christie', 420, true)
 
-
     addBooks(book1, book2, book3, book4);
-    // displayAllBooks()
-    console.log(libraryModule.getMyLibrary()[0].title);
 
-    return {displayAllBooks, addBooks, addBookToLibrary}
+    return {addBooks, addBookToLibrary}
 })();
 
 // display Controller 
 const displayController = (() => {
 
-    const getCardContainer = () => {
-        return document.querySelector("#card-container");
-    }
+    const getCardContainer = () => {return document.querySelector("#card-container")}
+    const resetForm = () => {document.querySelector("#add-book-form").reset()}
+    const getForm = () => {return document.querySelector("#add-book-form")}
+    const showForm = () => {getForm().classList.remove('hidden')}
+    const hideForm = () => {getForm().classList.add('hidden')}
 
-    // probably requires a form
-    // probably need to get form info
-    // for testing purposes, make cards from manually created books in my library
-    // therefore this requires a book argument
     const createCard = (book) => {
         // make card
         const card = document.createElement('div');
         // set class
         card.classList.add('card');
-        // create text, using form info
-        // for testing purposes, make text manually
+
+        // set card index, using library array length
+        card.setAttribute('data-index', libraryModule.getMyLibrary().length)
         const title = document.createElement('p');
         const author = document.createElement('p');
         const pages = document.createElement('p');
@@ -86,15 +76,11 @@ const displayController = (() => {
 
         // append elements to card
         ((...elements) => {
-            for (element of elements) {
+            for (let element of elements) {
                 card.appendChild(element);
             }
         })(title, author, pages, read, toggleRead, removeCard);
 
-        // title.textContent = libraryModule.getMyLibrary()[0].title
-        // author.textContent = libraryModule.getMyLibrary()[0].author
-        // pages.textContent = libraryModule.getMyLibrary()[0].pages
-        // read.textContent = libraryModule.getMyLibrary()[0].read
         title.textContent = book.title
         author.textContent = book.author
         pages.textContent = book.pages
@@ -115,33 +101,11 @@ const displayController = (() => {
             getCardContainer().removeChild(getCardContainer().lastChild)
         }
         // adds books to empty container
-
-        console.log('lets do THIS')
         for (const book of libraryModule.getMyLibrary()) {
-            // console.log(book)
             createCard(book);
         }
     }
 
-    const resetForm = () => {
-        document.querySelector("#add-book-form").reset();
-    }
-    // click remove book in card
-
-    //initialise books display
-    displayAllBooks();
-
-    const getForm = () => {
-        return document.querySelector("#add-book-form");
-    }
-
-    const showForm = () => {
-            getForm().classList.remove('hidden');
-    }
-
-    const hideForm = () => {
-            getForm().classList.add('hidden');
-    }
 
     const submitBook = () => {
         const title = document.querySelector("#title").value;
@@ -151,11 +115,9 @@ const displayController = (() => {
 
         const newBook = new Book(title, author, pages, haveRead)
         libraryController.addBookToLibrary(newBook)
-        // return ([title, author, pages, haveRead])
     }
     
     const clickHandler = (() => {
-
         // show form
         const addBookButton = document.querySelector("#add-button");
         addBookButton.addEventListener('click', (e) => {
@@ -178,17 +140,16 @@ const displayController = (() => {
             e.preventDefault();
             hideForm();
         });
-        })();
 
+        // remove cards
         getCardContainer().addEventListener('click', (e) => {
             // console.log(e.target.classList)
             if (e.target.classList.contains('remove-card')) {
                 console.log(e.target);
             }
+        });
+        })();
 
-        })
-        const removeCardButton = document.querySelector(".remove-card");
-        removeCardButton.addEventListener('click', (e) => {
-            console.log(e.target)
-        })
+    //initialise books display
+    displayAllBooks();
 })();
