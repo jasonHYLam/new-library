@@ -54,7 +54,7 @@ const libraryController = (() => {
     // displayAllBooks()
     console.log(libraryModule.getMyLibrary()[0].title);
 
-    return {displayAllBooks, addBooks}
+    return {displayAllBooks, addBooks, addBookToLibrary}
 })();
 
 // display Controller 
