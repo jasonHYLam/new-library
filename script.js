@@ -110,19 +110,28 @@ const displayController = (() => {
 
         // empties the container
         while (getCardContainer().lastChild) {
-            getCardContainer().remove(lastChild)
+            console.log(getCardContainer().lastChild)
+            getCardContainer().removeChild(getCardContainer().lastChild)
         }
         // adds books to empty container
+
+        console.log('lets do THIS')
         for (const book of libraryModule.getMyLibrary()) {
-            console.log(book)
+            // console.log(book)
             createCard(book);
         }
+    }
+
+    const resetForm = () => {
+        document.querySelector("#add-book-form").reset();
     }
 
     // create cards
     // delete a card
     // click add book
     // click remove book in card
+
+    //initialise books display
     displayAllBooks();
 
     const getForm = () => {
@@ -156,6 +165,7 @@ const displayController = (() => {
             e.preventDefault();
             submitBook();
             displayAllBooks();
+            resetForm();
 
             // console.log(e.target)
             // console.log(submitBook());
