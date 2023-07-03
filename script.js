@@ -40,7 +40,7 @@ const libraryController = (() => {
             addBookToLibrary(book)
         }
     }
-    // delete a book from array
+    // delete a book from array, using information to match; match title? or data attribute?
 
 
     // dummy books
@@ -179,4 +179,16 @@ const displayController = (() => {
             hideForm();
         });
         })();
+
+        getCardContainer().addEventListener('click', (e) => {
+            // console.log(e.target.classList)
+            if (e.target.classList.contains('remove-card')) {
+                console.log(e.target);
+            }
+
+        })
+        const removeCardButton = document.querySelector(".remove-card");
+        removeCardButton.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
 })();
