@@ -3,7 +3,7 @@ body {
 }
 #card-container {
     background-color: black;
-    height: 30vh;
+    /* height: 30vh; */
     width: auto;
     display: grid;
     grid-template-columns: repeat(3, 150px); 
@@ -15,4 +15,10 @@ body {
 
 .card {
     background-color: pink;
+}
+
+#add-book-form {
+}
+#add-book-form.hidden {
+    display: none;
 }
