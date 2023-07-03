@@ -107,11 +107,16 @@ const displayController = (() => {
     }
 
     const displayAllBooks = () => {
+
+        // empties the container
+        while (getCardContainer().lastChild) {
+            getCardContainer().remove(lastChild)
+        }
+        // adds books to empty container
         for (const book of libraryModule.getMyLibrary()) {
             console.log(book)
             createCard(book);
         }
-        console.log(getCardContainer());
     }
 
     // create cards
@@ -150,6 +155,7 @@ const displayController = (() => {
         submitFormButton.addEventListener('click', (e) => {
             e.preventDefault();
             submitBook();
+            displayAllBooks();
 
             // console.log(e.target)
             // console.log(submitBook());
