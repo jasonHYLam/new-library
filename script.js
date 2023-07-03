@@ -123,15 +123,17 @@ const displayController = (() => {
     const getForm = () => {
         return document.querySelector("#add-book-form");
     }
+
+    const showForm = () => {
+            getForm().classList.remove('hidden');
+    }
     
     const clickHandler = (() => {
         const addBookButton = document.querySelector("#add-button");
+
+        // show form
         addBookButton.addEventListener('click', (e) => {
-            console.log(
-            e.target
-            )
-
-
+            showForm();
         })
     })();
 
