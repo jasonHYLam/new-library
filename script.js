@@ -137,6 +137,7 @@ const displayController = (() => {
 
         const submitFormButton = document.querySelector("#submit-add-book-button");
         submitFormButton.addEventListener('click', (e) => {
+            e.preventDefault();
             console.log(e.target)
         })
         })
