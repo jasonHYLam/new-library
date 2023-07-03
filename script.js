@@ -82,6 +82,7 @@ const displayController = (() => {
 
         const toggleRead = document.createElement('button');
         const removeCard = document.createElement('button');
+        removeCard.classList.add("remove-card");
 
         // append elements to card
         ((...elements) => {
@@ -125,10 +126,6 @@ const displayController = (() => {
     const resetForm = () => {
         document.querySelector("#add-book-form").reset();
     }
-
-    // create cards
-    // delete a card
-    // click add book
     // click remove book in card
 
     //initialise books display
@@ -145,6 +142,7 @@ const displayController = (() => {
     const hideForm = () => {
             getForm().classList.add('hidden');
     }
+
     const submitBook = () => {
         const title = document.querySelector("#title").value;
         const author = document.querySelector("#author").value;
@@ -158,13 +156,13 @@ const displayController = (() => {
     
     const clickHandler = (() => {
 
-        const addBookButton = document.querySelector("#add-button");
         // show form
+        const addBookButton = document.querySelector("#add-button");
         addBookButton.addEventListener('click', (e) => {
             showForm();
         })
-
         
+        //submit form
         const submitFormButton = document.querySelector("#submit-add-book-button");
         submitFormButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -174,9 +172,11 @@ const displayController = (() => {
             hideForm();
         })
 
+        // close form
         const closeFormButton = document.querySelector("#close-add-book-form");
-        closeFormButton.addEventListener('click', (hideForm));
+        closeFormButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideForm();
+        });
         })();
-
-
 })();
