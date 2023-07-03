@@ -142,6 +142,9 @@ const displayController = (() => {
             getForm().classList.remove('hidden');
     }
 
+    const hideForm = () => {
+            getForm().classList.add('hidden');
+    }
     const submitBook = () => {
         const title = document.querySelector("#title").value;
         const author = document.querySelector("#author").value;
@@ -166,6 +169,7 @@ const displayController = (() => {
             submitBook();
             displayAllBooks();
             resetForm();
+
 
             // console.log(e.target)
             // console.log(submitBook());
