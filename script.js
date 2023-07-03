@@ -69,7 +69,23 @@ const displayController = (() => {
         // make card
         const card = document.createElement('div');
         // set class
+        card.classList.add('card');
         // create text, using form info
+        // for testing purposes, make text manually
+        const title = document.createElement('p');
+        const author = document.createElement('p');
+        const pages = document.createElement('p');
+        const read = document.createElement('p');
+
+        const toggleRead = document.createElement('button');
+        const removeCard = document.createElement('button');
+
+        // append elements to card
+        ((...elements) => {
+            for (element of elements) {
+                card.appendChild(element);
+            }
+        })(title, author, pages, read, toggleRead, removeCard);
         // make remove button
     }
 
