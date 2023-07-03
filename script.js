@@ -37,8 +37,11 @@ const libraryController = (() => {
         }
     }
     // delete a book from array, using information to match; match title? or data attribute?
-    function deleteBook() {
-
+    function deleteBook(index) {
+        console.log(
+        libraryModule.getMyLibrary().filter((book) => {book.index == index})
+        )
+        // libraryModule.getMyLibrary().filter((book) => {book.index == index})
     }
 
     // dummy books
@@ -49,7 +52,7 @@ const libraryController = (() => {
 
     addBooks(book1, book2, book3, book4);
 
-    return {addBooks, addBookToLibrary}
+    return {addBooks, addBookToLibrary, deleteBook}
 })();
 
 // display Controller 
@@ -68,7 +71,7 @@ const displayController = (() => {
         card.classList.add('card');
 
         // set card index, using library array length
-        card.setAttribute('data-index', libraryModule.getMyLibrary().length)
+        card.setAttribute('data-index', book.index)
         const title = document.createElement('p');
         const author = document.createElement('p');
         const pages = document.createElement('p');
@@ -147,9 +150,10 @@ const displayController = (() => {
 
         // remove cards
         getCardContainer().addEventListener('click', (e) => {
-            // console.log(e.target.classList)
             if (e.target.classList.contains('remove-card')) {
-                console.log(e.target);
+                console.log(e.target.parentElement);
+                console.log(e.target.parentElement.dataset.index);
+                libraryController.deleteBook();
             }
         });
         })();
