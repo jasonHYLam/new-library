@@ -129,11 +129,16 @@ const displayController = (() => {
     }
     
     const clickHandler = (() => {
-        const addBookButton = document.querySelector("#add-button");
 
+        const addBookButton = document.querySelector("#add-button");
         // show form
         addBookButton.addEventListener('click', (e) => {
             showForm();
+
+        const submitFormButton = document.querySelector("#submit-add-book-button");
+        submitFormButton.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
         })
     })();
 
