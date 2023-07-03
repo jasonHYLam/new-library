@@ -52,6 +52,7 @@ const libraryController = (() => {
 
     addBooks(book1, book2, book3, book4);
     // displayAllBooks()
+    console.log(libraryModule.getMyLibrary()[0].title);
 
     return {displayAllBooks, addBooks}
 })();
@@ -65,7 +66,9 @@ const displayController = (() => {
 
     // probably requires a form
     // probably need to get form info
-    const createCard = () => {
+    // for testing purposes, make cards from manually created books in my library
+    // therefore this requires a book argument
+    const createCard = (book) => {
         // make card
         const card = document.createElement('div');
         // set class
@@ -86,23 +89,33 @@ const displayController = (() => {
                 card.appendChild(element);
             }
         })(title, author, pages, read, toggleRead, removeCard);
-        // make remove button
+
+        // title.textContent = libraryModule.getMyLibrary()[0].title
+        // author.textContent = libraryModule.getMyLibrary()[0].author
+        // pages.textContent = libraryModule.getMyLibrary()[0].pages
+        // read.textContent = libraryModule.getMyLibrary()[0].read
+        title.textContent = book.title
+        author.textContent = book.author
+        pages.textContent = book.pages
+        read.textContent = book.read
+
+        getCardContainer().appendChild(card);
+    
     }
 
     const displayAllBooks = () => {
         for (const book of libraryModule.getMyLibrary()) {
             console.log(book)
+            createCard(book);
         }
-        console.log(cardContainer);
-        // getCardContainer().
-
-
+        console.log(getCardContainer());
     }
 
     // create cards
     // delete a card
     // click add book
     // click remove book in card
+    displayAllBooks();
 
 
 })();
