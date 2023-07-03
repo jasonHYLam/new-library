@@ -1,3 +1,6 @@
+:root {
+    --box-shadow: 0px 5px blue;
+}
 body {
     background-color: rgb(32, 29, 29);
     margin: 0;
@@ -7,15 +10,18 @@ body {
     height: 10vh;
     font-size: 40px;
     background-color: aliceblue;
+    margin-bottom: 5vh;
+    box-shadow: var(--box-shadow);
 }
 
 #card-container {
+    margin-top: 5vh;
     background-color: black;
     /* height: 30vh; */
     width: auto;
     display: grid;
-    grid-template-columns: repeat(3, 150px); 
-    /* grid-template-rows: repeat(4, 200px); */
+    grid-template-columns: repeat(3, 240px); 
+    grid-template-rows: repeat(4, 300px);
     grid-auto-rows: 200px;
     column-gap: 30px;
     row-gap: 30px;
@@ -23,11 +29,20 @@ body {
 
 .card {
     background-color: pink;
+    box-shadow: var(--box-shadow);
+    padding: 10px 10px 5px;
+    font-size: 20px;
 }
+
+
 
 #add-book-form {
     background-color: aliceblue;
 }
 #add-book-form.hidden {
     display: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
