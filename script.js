@@ -5,15 +5,19 @@ const libraryModule = (() => {
 
     function getMyLibrary() {return myLibrary};
     function getCounter() {return bookCounter};
-    return {getMyLibrary}
+    function incrementCounter() {return bookCounter++};
+    return {getMyLibrary, getCounter, incrementCounter}
 })();
 
 function Book(title, author, pages, read) {
 
+    // every time a new Book is created, increment the book counter.
+    libraryModule.incrementCounter();
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = libraryModule.getCounter();
 }
 
 // set functions onto prototype
@@ -152,4 +156,7 @@ const displayController = (() => {
 
     //initialise books display
     displayAllBooks();
+
+
+    console.log(libraryModule.getMyLibrary());
 })();
