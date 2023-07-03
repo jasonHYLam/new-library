@@ -84,6 +84,11 @@ const displayController = (() => {
         const pages = document.createElement('p');
         const read = document.createElement('p');
 
+        title.classList.add("title");
+        author.classList.add("author");
+        pages.classList.add("pages");
+        read.classList.add("read");
+
         const toggleRead = document.createElement('button');
         toggleRead.classList.add("toggle-read");
         const removeCard = document.createElement('button');
