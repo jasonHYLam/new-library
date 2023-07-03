@@ -1,6 +1,14 @@
 body {
     background-color: rgb(32, 29, 29);
+    margin: 0;
 }
+
+#header {
+    height: 10vh;
+    font-size: 40px;
+    background-color: aliceblue;
+}
+
 #card-container {
     background-color: black;
     /* height: 30vh; */
@@ -23,4 +31,3 @@ body {
 #add-book-form.hidden {
     display: none;
 }
-
