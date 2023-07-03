@@ -5,6 +5,12 @@ body {
     background-color: black;
     height: 30vh;
     width: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 150px); 
+    /* grid-template-rows: repeat(4, 200px); */
+    grid-auto-rows: 200px;
+    column-gap: 30px;
+    row-gap: 30px;
 }
 
 .card {
