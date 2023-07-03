@@ -12,13 +12,13 @@ const libraryModule = (() => {
 
 function Book(title, author, pages, read) {
 
-    // every time a new Book is created, increment the book counter.
-    libraryModule.incrementCounter();
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.index = libraryModule.getCounter();
+    // every time a new Book is created, increment the book counter.
+    libraryModule.incrementCounter();
 }
 
 // set functions onto prototype
@@ -108,7 +108,6 @@ const displayController = (() => {
 
         // empties the container
         while (getCardContainer().lastChild) {
-            console.log(getCardContainer().lastChild)
             getCardContainer().removeChild(getCardContainer().lastChild)
         }
         // adds books to empty container
@@ -162,10 +161,14 @@ const displayController = (() => {
         });
 
 
+        // toggle read status
         getCardContainer().addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove-card')) {
+            if (e.target.classList.contains('toggle-read')) {
                 let index = Number(e.target.parentElement.dataset.index);
-                libraryController.deleteBook(index);
+                console.log(
+                libraryModule.getMyLibrary()[index]
+
+                )
                 displayAllBooks();
             }
         });
