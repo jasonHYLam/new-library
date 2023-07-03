@@ -26,6 +26,10 @@ Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = this.read == 'true'? this.read = false : this.read = true;
+}
+
 // controller
 const libraryController = (() => {
     function addBookToLibrary(book) {
