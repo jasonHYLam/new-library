@@ -162,20 +162,21 @@ const displayController = (() => {
         // show form
         addBookButton.addEventListener('click', (e) => {
             showForm();
+        })
 
+        
         const submitFormButton = document.querySelector("#submit-add-book-button");
         submitFormButton.addEventListener('click', (e) => {
             e.preventDefault();
             submitBook();
             displayAllBooks();
             resetForm();
-
-
-            // console.log(e.target)
-            // console.log(submitBook());
+            hideForm();
         })
-        })
-    })();
+
+        const closeFormButton = document.querySelector("#close-add-book-form");
+        closeFormButton.addEventListener('click', (hideForm));
+        })();
 
 
 })();
