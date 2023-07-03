@@ -18,6 +18,7 @@ function Book(title, author, pages, read) {
     this.read = read;
     this.index = libraryModule.getCounter();
     // every time a new Book is created, increment the book counter.
+    console.log(`current book counter: ${libraryModule.getCounter()}`)
     libraryModule.incrementCounter();
 }
 
@@ -27,7 +28,7 @@ Book.prototype.info = function() {
 }
 
 Book.prototype.toggleRead = function() {
-    this.read = this.read == 'true'? this.read = false : this.read = true;
+    this.read = this.read == true ? this.read = false : this.read = true;
 }
 
 // controller
@@ -66,6 +67,9 @@ const displayController = (() => {
     const getForm = () => {return document.querySelector("#add-book-form")}
     const showForm = () => {getForm().classList.remove('hidden')}
     const hideForm = () => {getForm().classList.add('hidden')}
+    const getMatchingBook = (index) => {
+        return libraryModule.getMyLibrary().find((book) => book.index == index)
+    }
 
     const createCard = (book) => {
         // make card
@@ -112,6 +116,7 @@ const displayController = (() => {
         }
         // adds books to empty container
         for (const book of libraryModule.getMyLibrary()) {
+            console.log(book);
             createCard(book);
         }
     }
@@ -165,10 +170,9 @@ const displayController = (() => {
         getCardContainer().addEventListener('click', (e) => {
             if (e.target.classList.contains('toggle-read')) {
                 let index = Number(e.target.parentElement.dataset.index);
-                console.log(
-                libraryModule.getMyLibrary()[index]
-
-                )
+                console.log('asdfhskaj')
+                // get the matching book, and set its toggle read status to opposite
+                getMatchingBook(index).toggleRead()
                 displayAllBooks();
             }
         });
