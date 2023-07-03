@@ -120,5 +120,17 @@ const displayController = (() => {
     // click remove book in card
     displayAllBooks();
 
+    const clickHandler = (() => {
+        const addBookButton = document.querySelector("#add-button");
+        addBookButton.addEventListener('click', (e) => {
+            console.log(
+
+            e.target
+            )
+
+
+        })
+    })();
+
 
 })();
