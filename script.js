@@ -99,6 +99,9 @@ const displayController = (() => {
         pages.textContent = book.pages
         read.textContent = book.read
 
+        toggleRead.textContent = 'read/unread';
+        removeCard.textContent = 'remove card';
+
         getCardContainer().appendChild(card);
     
     }
