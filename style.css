@@ -4,9 +4,13 @@
 body {
     background-color: rgb(32, 29, 29);
     margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #header {
+    
     height: 10vh;
     font-size: 40px;
     background-color: aliceblue;
@@ -16,8 +20,9 @@ body {
 
 #card-container {
     margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
     background-color: black;
-    /* height: 30vh; */
     width: auto;
     display: grid;
     grid-template-columns: repeat(3, 240px); 
@@ -44,6 +49,10 @@ body {
 }
 #add-book-form.hidden {
     display: none;
+}
+
+#add-button {
+    font-size: 50px;
 }
 
 button:hover {
