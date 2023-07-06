@@ -63,6 +63,19 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
+#form-header {
+    margin-top: 50px;
+
+}
+
+#form-header > * {
+    font-size: 40px;
+}
+
+#close-add-book-form {
+    padding: 10px 20px 5px;
+
+}
 
 #add-book-form {
     position: fixed;
@@ -73,13 +86,13 @@ body {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
-
 }
 
 #add-button {
     font-size: 30px;
     margin-left: auto;
     margin-right: auto;
+    padding: 15px 20px 15px;
 }
 
 button:hover {

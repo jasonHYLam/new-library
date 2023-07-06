@@ -27,7 +27,7 @@ Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
 }
 
-Book.prototype.toggleRead = function() {
+Book.prototype.toggleRead = function() {// look into this
     this.read = this.read == true ? this.read = false : this.read = true;
 }
 
@@ -104,7 +104,12 @@ const displayController = (() => {
         title.textContent = book.title
         author.textContent = book.author
         pages.textContent = book.pages
-        read.textContent = book.read
+        if (book.read == true) {
+            read.textContent = 'Read!'
+        } else {
+            read.textContent = "Not read :("
+        }
+        // read.textContent = book.read //look into this
 
         toggleRead.textContent = 'read/unread';
         removeCard.textContent = 'remove card';
