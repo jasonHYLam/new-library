@@ -2,7 +2,7 @@
     --box-shadow: 0px 5px blue;
 }
 body {
-    background-color: rgb(32, 29, 29);
+    background-color: rgb(39, 39, 39);
     margin: 0;
     text-align: center;
     display: flex;
@@ -16,6 +16,7 @@ body {
     background-color: aliceblue;
     margin-bottom: 5vh;
     box-shadow: var(--box-shadow);
+    padding-top: 30px;
 }
 
 #card-container {
@@ -23,7 +24,7 @@ body {
     margin-top: 5vh;
     margin-left: auto;
     margin-right: auto;
-    background-color: black;
+    background-color: rgb(124, 124, 124);
     width: auto;
     display: grid;
     grid-template-columns: repeat(3, 240px); 
@@ -38,7 +39,7 @@ body {
 }
 
 .card {
-    background-color: pink;
+    background-color: rgb(255, 125, 147);
     height: 240px;
     box-shadow: var(--box-shadow);
     padding: 10px 18px 5px;
