@@ -12,7 +12,7 @@ body {
 #header {
     
     height: 10vh;
-    font-size: 40px;
+    font-size: 60px;
     background-color: aliceblue;
     margin-bottom: 5vh;
     box-shadow: var(--box-shadow);
@@ -52,7 +52,7 @@ body {
 }
 
 #add-button {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 button:hover {
