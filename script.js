@@ -2,7 +2,6 @@
 const libraryModule = (() => {
     let myLibrary = [];
     let bookCounter = 0;
-
     function getMyLibrary() {return myLibrary};
     function setMyLibrary(newArray) {return myLibrary = newArray};
     function getCounter() {return bookCounter};
@@ -11,14 +10,12 @@ const libraryModule = (() => {
 })();
 
 function Book(title, author, pages, read) {
-
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.index = libraryModule.getCounter();
     // every time a new Book is created, increment the book counter.
-    console.log(`current book counter: ${libraryModule.getCounter()}`)
     libraryModule.incrementCounter();
 }
 
@@ -27,7 +24,7 @@ Book.prototype.info = function() {
     return ([this.title, this.author, this.pages, this.read]);
 }
 
-Book.prototype.toggleRead = function() {// look into this
+Book.prototype.toggleRead = function() {
     this.read = this.read == true ? this.read = false : this.read = true;
 }
 
@@ -42,7 +39,7 @@ const libraryController = (() => {
             addBookToLibrary(book)
         }
     }
-    // delete a book from array, using information to match; match title? or data attribute?
+    // delete a book from array, using assigned index to match
     function deleteBook(cardIndex) {
         const newArray = libraryModule.getMyLibrary().filter((book) => {return book.index != cardIndex})
         libraryModule.setMyLibrary(newArray);
@@ -72,12 +69,8 @@ const displayController = (() => {
     }
 
     const createCard = (book) => {
-        // make card
         const card = document.createElement('div');
-        // set class
         card.classList.add('card');
-
-        // set card index, using library array length
         card.setAttribute('data-index', book.index)
         const title = document.createElement('p');
         const author = document.createElement('p');
@@ -109,35 +102,28 @@ const displayController = (() => {
         } else {
             read.textContent = "Not read :("
         }
-        // read.textContent = book.read //look into this
-
         toggleRead.textContent = 'read/unread';
         removeCard.textContent = 'remove card';
 
         getCardContainer().appendChild(card);
-    
     }
 
     const displayAllBooks = () => {
-
         // empties the container
         while (getCardContainer().lastChild) {
             getCardContainer().removeChild(getCardContainer().lastChild)
         }
         // adds books to empty container
         for (const book of libraryModule.getMyLibrary()) {
-            console.log(book);
             createCard(book);
         }
     }
-
 
     const submitBook = () => {
         const title = document.querySelector("#title").value;
         const author = document.querySelector("#author").value;
         const pages = document.querySelector("#pages").value;
         const haveRead = document.querySelector("#have-read-checkbox").checked;
-
         const newBook = new Book(title, author, pages, haveRead)
         libraryController.addBookToLibrary(newBook)
     }
@@ -175,12 +161,10 @@ const displayController = (() => {
             }
         });
 
-
         // toggle read status
         getCardContainer().addEventListener('click', (e) => {
             if (e.target.classList.contains('toggle-read')) {
                 let index = Number(e.target.parentElement.dataset.index);
-                console.log('asdfhskaj')
                 // get the matching book, and set its toggle read status to opposite
                 getMatchingBook(index).toggleRead()
                 displayAllBooks();
@@ -198,7 +182,4 @@ const displayController = (() => {
 
     //initialise books display
     displayAllBooks();
-
-
-    console.log(libraryModule.getMyLibrary());
 })();
