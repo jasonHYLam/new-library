@@ -11,29 +11,33 @@
     <div id="header">Library</div>
     <button id="add-button">Add Book</button>
     <div id="card-container"></div>
-    <form action="" class="hidden" id="add-book-form" novalidate>
-        <div id="header">
-            <p>Add Book:</p>
-            <button id="close-add-book-form">x</button>
-        </div>
-        <div class="book-info-div">
-            <p>Title:</p>
-            <input type="text" id="title" required>
-        </div>
-        <div class="book-info-div">
-            <p>Author:</p>
-            <input type="text" id="author" required>
-        </div>
-        <div class="book-info-div">
-            <p>Pages:</p>
-            <input type="text" id="pages" required>
-        </div>
-        <div class="book-info-div">
-            <p>Read?</p>
-            <input type="checkbox" name="" id="have-read-checkbox">
-        </div>
-        <button id="submit-add-book-button">Submit</button>
-    </form>
+    <div id="pop-up">
+        <div id="blocker"></div>
+        <form action="" class="hidden" id="add-book-form" novalidate>
+            <div id="header">
+                <p>Add Book:</p>
+                <button id="close-add-book-form">x</button>
+            </div>
+            <div class="book-info-div">
+                <p>Title:</p>
+                <input type="text" id="title" required>
+            </div>
+            <div class="book-info-div">
+                <p>Author:</p>
+                <input type="text" id="author" required>
+            </div>
+            <div class="book-info-div">
+                <p>Pages:</p>
+                <input type="text" id="pages" required>
+            </div>
+            <div class="book-info-div">
+                <p>Read?</p>
+                <input type="checkbox" name="" id="have-read-checkbox">
+            </div>
+            <button id="submit-add-book-button">Submit</button>
+        </form>
+
+    </div>
     
 </body>
 </html>
