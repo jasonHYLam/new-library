@@ -9,7 +9,8 @@ const libraryModule = (() => {
     return {getMyLibrary, setMyLibrary, getCounter, incrementCounter}
 })();
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -17,16 +18,34 @@ function Book(title, author, pages, read) {
     this.index = libraryModule.getCounter();
     // every time a new Book is created, increment the book counter.
     libraryModule.incrementCounter();
-}
+    }
 
-// set functions onto prototype
-Book.prototype.info = function() {
-    return ([this.title, this.author, this.pages, this.read]);
-}
+    info() {
+        return ([this.title, this.author, this.pages, this.read]);
+    }
 
-Book.prototype.toggleRead = function() {
-    this.read = this.read == true ? this.read = false : this.read = true;
+    toggleRead() {
+        this.read = this.read == true ? this.read = false : this.read = true;
+    }
 }
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.index = libraryModule.getCounter();
+//     // every time a new Book is created, increment the book counter.
+//     libraryModule.incrementCounter();
+// }
+
+// // set functions onto prototype
+// Book.prototype.info = function() {
+//     return ([this.title, this.author, this.pages, this.read]);
+// }
+
+// Book.prototype.toggleRead = function() {
+//     this.read = this.read == true ? this.read = false : this.read = true;
+// }
 
 // controller
 const libraryController = (() => {
