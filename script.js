@@ -182,6 +182,13 @@ const displayController = (() => {
             }
         });
 
+        getPopup().addEventListener('click', (e) => {
+            if (e.target.id == 'blocker') {
+                hideForm();
+                resetForm();
+                }
+        })
+
         })();
 
     //initialise books display
