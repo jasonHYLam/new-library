@@ -82,7 +82,7 @@ const displayController = (() => {
         const title = document.createElement('p');
         const author = document.createElement('p');
         const pages = document.createElement('p');
-        const read = document.createElement('p');
+        const read = document.createElement('span');
 
         title.classList.add("title");
         author.classList.add("author");

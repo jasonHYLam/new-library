@@ -33,6 +33,10 @@ body {
     row-gap: 30px;
 }
 
+.title, .author {
+    overflow: hidden;
+}
+
 .card {
     background-color: pink;
     height: 240px;
@@ -88,6 +92,7 @@ body {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
+    padding-bottom: 40px;
 }
 
 #add-button {
@@ -95,6 +100,21 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 15px 20px 15px;
+}
+
+#submit-add-book-button {
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.book-info-div p {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.book-info-div span {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 button:hover {
