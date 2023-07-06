@@ -43,20 +43,37 @@ body {
     text-align: end;
 }
 
-
-#add-book-form {
-    background-color: aliceblue;
+#pop-up {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
-    width: 400px;
-
 }
-#add-book-form.hidden {
+
+#pop-up.hidden {
     display: none;
-    /* position: absolute; */
+}
+
+#blocker {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: '';
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+#add-book-form {
+    position: fixed;
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
 }
 
 #add-button {

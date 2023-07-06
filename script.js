@@ -64,9 +64,9 @@ const displayController = (() => {
 
     const getCardContainer = () => {return document.querySelector("#card-container")}
     const resetForm = () => {document.querySelector("#add-book-form").reset()}
-    const getForm = () => {return document.querySelector("#add-book-form")}
-    const showForm = () => {getForm().classList.remove('hidden')}
-    const hideForm = () => {getForm().classList.add('hidden')}
+    const getPopup = () => {return document.querySelector("#pop-up")}
+    const showForm = () => {getPopup().classList.remove('hidden')}
+    const hideForm = () => {getPopup().classList.add('hidden')}
     const getMatchingBook = (index) => {
         return libraryModule.getMyLibrary().find((book) => book.index == index)
     }
